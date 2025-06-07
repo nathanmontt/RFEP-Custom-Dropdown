@@ -2,12 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    list-style-type: none;
-    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
 
     --main-size: 1em;
     --border: .01em;
+    --border-size: 1px;
     --sec-size: .5em;
     --thir-size: .9em;
 }
@@ -47,8 +46,20 @@ body {
     width: 13em;
     cursor: pointer;
     padding: var(--sec-size);
-    border: 2px solid;
 }
-.holder-text-img .options:nth-child(1) {
-    border-bottom: none;
+#dropdown-options .holder-text-img:nth-child(1){
+    border-top: var(--border-size) solid;
+    border-left: var(--border-size) solid;
+    border-right: var(--border-size) solid;
+    border-bottom: var(--border-size) solid;
+}
+#dropdown-options .holder-text-img:nth-child(2){
+    border-left: var(--border-size) solid;
+    border-right: var(--border-size) solid;
+    border-bottom: var(--border-size) solid;
+}
+#dropdown-options .holder-text-img:nth-child(3){
+    border-left: var(--border-size) solid;
+    border-right: var(--border-size) solid;
+    border-bottom: var(--border-size) solid;
 }

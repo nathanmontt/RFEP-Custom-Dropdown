@@ -3,27 +3,59 @@
 
 const buttonContainer = document.querySelector('.button-container');
 const dropdownOptions = document.getElementById('dropdown-options');
+const dropdownArrow = document.getElementById('dropdown-arrow');
+const options = document.querySelectorAll('.options');
+const openDropdown = document.getElementById('open-dropdown');
+
+console.log(options)
 
 buttonContainer.addEventListener('click', () => {
-    dropdownOptions.classList.toggle('hidden');
-})
+    if (dropdownOptions.classList.contains('hidden')) {
+        dropdownOptions.classList.remove('hidden');
+        dropdownArrow.src = "assets/img/up.png";
+    } else {
+        dropdownOptions.classList.add('hidden');
+        dropdownArrow.src = "assets/img/down.png";
+    }
+});
 
-/*
-<body>
-    <div class="button-container">
-        <button id="open-dropdown">Select an item</button>
-        <img src="assets/img/down.png" alt="Dropdown Arrow" id="dropdown-arrow">
-    </div>
-    <div id="dropdown-options">
-        <div class="holder-text-img">
-            <p class="options">First Item</p>
-        </div>
-        <div class="holder-text-img">
-            <p class="options">Second Item</p>
-        </div>
-        <div class="holder-text-img">
-            <p class="options">Third Item</p>
-        </div>
-    </div>
-</body>
-*/
+for (let i=0 ; i<options.length ; i++) {
+    options[i].addEventListener('click', () => {
+        switch (options[i]) {
+            case options[0]:
+                try {
+                    openDropdown.textContent = options[0].textContent;
+                    dropdownOptions.classList.add('hidden');
+                    dropdownArrow.src = "assets/img/down.png";
+                    break;
+                } catch (error) {
+                    console.error(error)
+                }
+
+            case options[1]:
+                openDropdown.textContent = options[1].textContent;
+                dropdownOptions.classList.add('hidden');
+                dropdownArrow.src = "assets/img/down.png";
+                break;
+
+            case options[2]:
+                openDropdown.textContent = options[2].textContent;
+                dropdownOptions.classList.add('hidden');
+                dropdownArrow.src = "assets/img/down.png";
+                break;
+
+            default:
+                break;
+        }
+    });
+}
+
+for (let k=0 ; k<options.length ; k++) {
+    options[k].addEventListener('mouseover', () => {
+        options[k].style.fontWeight = '700';
+    });
+
+    options[k].addEventListener('mouseleave', () => {
+        options[k].style.fontWeight = 'normal';
+    });
+}
